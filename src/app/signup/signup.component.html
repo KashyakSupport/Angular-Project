@@ -1,0 +1,84 @@
+
+<div ng-controller="formctrl" ng-app="myApp">
+
+<mat-card>
+<div class="container">
+<div id="signup">
+    <div class="signup-screen">
+        <div class="mat-card-title mat-color-primary mat-shadow-6dp" >Register</div>
+        <div class="divider"></div>
+      
+    <mat-card-content>
+        <form class="user" method="POST" name="register" action="/api/user" novalidate>
+           
+          <div class="input-field col s6">
+          <mat-form-field class="example-full-width">
+            <span matPrefix></span>
+            <input name="key" matInput placeholder="First Name" [(ngModel)]="user.key">
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+          </div>
+          <div class="input-field col s6">
+            <mat-form-field class="example-full-width">
+              <span matPrefix></span>
+              <input name="lname" matInput placeholder="Last Name" [(ngModel)]="user.lname">
+              <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+            </div> 
+          <div class="input-field col s6">
+            <mat-form-field class="example-full-width">
+              <span matPrefix></span>
+              <input name="uname" matInput placeholder="User Name" [(ngModel)]="user.uname">
+              <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+          </div>
+          <div class="input-field col s6">
+            <mat-form-field class="example-full-width">
+              <span matPrefix></span>
+              <input name="pass" type="password" matInput placeholder="Password" required [(ngModel)]="user.pass">
+              <mat-icon matSuffix>https</mat-icon>
+            </mat-form-field>
+            </div>
+            <div class="input-field col s6">
+              <mat-form-field class="example-full-width">
+                <span matPrefix></span>
+                <input name="email"  matInput placeholder="Email" required [(ngModel)]="user.email">
+                <mat-icon matSuffix>https</mat-icon>
+              </mat-form-field>
+              </div>
+          <!--  <div>
+          <mat-card-actions>
+            <button mat-raised-button>Login</button>
+            
+            <button mat-button>Register</button>
+          </mat-card-actions>
+        </div> -->
+          <div class="mat-card-actions ">
+              <button  mat-raised-button type="submit" (click)="save()">Register</button>
+                </div>
+          </form>
+        </mat-card-content>
+        </div>
+      </div>
+  </div>
+</mat-card> 
+</div
+>
+
+
+
+<!--
+
+<mat-card>
+    <div class="mat-card-title mat-color-primary mat-shadow-6dp" >Register</div>
+    <mat-card-content>
+        <div class="input-field col s6">  <input matInput placeholder="First Name" [(ngModel)]="user.fname"><br /> </div>
+          <div class="input-field col s6">   <input matInput placeholder="Last Name" [(ngModel)]="user.lname"><br /> </div>
+            <div class="input-field col s6">  <input matInput  placeholder="User Name" [(ngModel)]="user.email"><br /></div>
+              <div class="input-field col s6">   <input matInput  placeholder="Password" [(ngModel)]="user.password"><br /></div>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button (click)="save()">Register</button>
+    </mat-card-actions>
+</mat-card>
+-->
