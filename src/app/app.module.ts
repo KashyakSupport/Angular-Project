@@ -2,22 +2,37 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
-//import { MaterialModule } from '@angular/material';
+// import { MaterialModule } from '@angular/material';
 import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http'
+import {HttpModule} from '@angular/http';
 import 'hammerjs';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 import { AppComponent } from './app.component';
-import { AvailableRoutes } from './app.routing';
-import { RouterModule } from '@angular/router';
-import{MatCheckboxModule,MatToolbarModule ,MatInputModule,MatIconModule,MatCardModule,MatButtonModule,MatListModule,MatDialogModule} from '@angular/material'
+import { Routes, RouterModule } from '@angular/router';
+import { MatCheckboxModule,
+        MatToolbarModule,
+        MatInputModule,
+        MatIconModule,
+        MatCardModule,
+        MatButtonModule,
+        MatListModule,
+        MatTableModule,
+        MatDialogModule} from '@angular/material';
+  // Routing the pages
+ const AppRoutes: Routes = [
+          { path: '', component: SignupComponent },
+          { path: 'login' , component: LoginComponent },
+          { path: 'home' , component: HomeComponent},
+      ];
 
 @NgModule({
   declarations: [
     AppComponent,
    SignupComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -32,13 +47,13 @@ import{MatCheckboxModule,MatToolbarModule ,MatInputModule,MatIconModule,MatCardM
     MatButtonModule,
     MatDialogModule,
     MatListModule,
+    MatTableModule,
     RouterModule,
-    RouterModule.forRoot(AvailableRoutes),
+    RouterModule.forRoot(AppRoutes),
     MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
-  
+export class AppModule {
 }

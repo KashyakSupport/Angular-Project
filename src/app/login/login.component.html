@@ -1,25 +1,26 @@
+<div class="mat-layout" ng-controller="formctrl" ng-app="myApp">
 <mat-card>
-<div class="mat-layout">
-        <div class="mat-card-title mat-color-primary mat-shadow-12dp" >Sign In</div>
+
+        <div class="mat-card-title mat-color-primary mat-shadow-12dp" >Sign In
         <mat-card-content>
-                <form class="form-login" method="post" name="login" novalidate>
+                <form class="sup" method="post" action="/api/user" novalidate>
                         <div class="input-field col s6">
                             <mat-form-field class="example-full-width">
                               <span matPrefix></span>
-                              <input type="email" matInput placeholder="User Name">
+                              <input type="email" name="uname" matInput placeholder="User Name" [(ngModel)]="sup.uname">
                               <mat-icon matSuffix>person</mat-icon>
                             </mat-form-field>
                         </div> 
                         <div class="input-field col s6">
                                 <mat-form-field class="example-full-width">
                                   <span matPrefix></span>
-                                  <input ng-model="uname" type="password" matInput placeholder="Password" required>
+                                  <input ng-model="uname" name="pass" type="password" matInput placeholder="Password" [(ngModel)]="sup.pass" required>
                                   <mat-icon matSuffix>https</mat-icon>
                                 </mat-form-field>
                                </div>
                                <div class="mat-card-actions ">
-                                    <button mat-button>Forgot password?</button>
-                                    <button  mat-raised-button type="submit">LOGIN</button>
+                                    <button mat-button><a routerLink="">Forgot password?</a></button>
+                                    <button  mat-raised-button type="submit" (click)="save()">LOGIN</button>
                                      </div>
 
 
@@ -34,3 +35,4 @@
 
 
 </mat-card>
+</div>

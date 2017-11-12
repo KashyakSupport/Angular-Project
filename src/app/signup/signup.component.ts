@@ -13,35 +13,31 @@ import { NgModel } from '@angular/forms';
 export class SignupComponent implements OnInit  {
     public user: any;
    
-    public constructor(private location: Location, private http: Http) {
+    public constructor(private location: Location, private http: Http, private router: Router) {
         this.user = {
-            "key":"",
-            "lname": "",
-            "uname": "",
-            "pass": "",
-            "email": "",
-             
-        }
-    
+            'key': '',
+            'lname': '',
+            'uname': '',
+            'pass': '',
+            'email': '',
+
+        };
+
     }
-   
 
-    public ngOnInit() { } 
+    public ngOnInit() { }
+
     public save() {
-        
-       
-        if(this.user.email && this.user.pass) {
-
-            console.log("submit Post click happend " + this.user)
-            
-            this.http.post("http://localhost:8080/api/user", JSON.stringify(this.user))
-            .subscribe(result => {
+        if (this.user.email && this.user.pass) {
+             console.log('submit Post click happend' + this.user);
+           this.http.post('http://localhost:8080/api/user', JSON.stringify(this.user))
+           .subscribe(result => {
                 this.location.back();
             });
-            console.log("submit Post click happend " +  JSON.stringify(this.user))
+            this.router.navigate(['/login']);
+            console.log('submit Post click happend ' +  JSON.stringify(this.user) );
         }
-    
+   
 
 }
-        
 }
